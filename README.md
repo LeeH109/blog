@@ -1,1 +1,1 @@
-# blog
+# ecommerce-shop-starter
