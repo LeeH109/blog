@@ -4,14 +4,16 @@ import Button from "../components/components/Button";
 import { update } from "../redux/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-const Update = ({ setIsOpen }) => {
+const Update = ({ setIsOpen,isOpen }) => {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   //  console.log(user);
   //
-  const [name, setName] = useState("Hạnh Nguyễn");
-  const [age, setAge] = useState("20");
-  const [avt, setAvt] = useState("avt");
+  const [name, setName] = useState(user.name);
+  const [age, setAge] = useState(user.age);
+  const [avt, setAvt] = useState(user.avt);
+  const [bio,setBio] = useState(user.bio);
+
   //  console.log(name);
   //  console.log(age);
   const listAvt = [
@@ -33,42 +35,55 @@ const Update = ({ setIsOpen }) => {
       name: name,
       age: age,
       avt: avt,
+      bio:bio,
     };
     dispatch(update(updateUser));
+  
   };
-
+  console.log(avt);
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <section>
+    <div className="w-full  ">
+      <form onSubmit={handleSubmit} 
+       className={`${isOpen ? "right-1/4" : "-right-full"} }
+  w-4/5 bg-white fixed top-0  h-screen items-center
+  shadow-2xl md:x-[35vw] xl:max-w-[32vw] 
+  transition-all duration-300 z-20 px-4 
+   lg:px-[35px] 
+  `} >
+        <section className="w-full  ">
           {/* edit */}
-
-          <div>
-            <div class="mb-6">
-              <Input label="Name" data={user.name} setData={setName} />
+        <h3 className="my-4 text-center font-bold text-2xl" > Edit Profile </h3>
+          <div className="w-full" >
+            <div class="mb-4  ">
+              <Input label="Name" data={user.name}
+               setData={setName} />
             </div>
-            <div class="mb-6">
+            <div class="mb-4">
               <Input
                 label="Age"
                 data={user.age}
-                setData={setAge}
-                type="textarea"
+                setData={setAge}           
               />
             </div>
-            <label> ảnh đại diện</label>
-
+            <div className="mb-4" >
+       <Input label='Bio' data={user.bio}
+       setData = {setBio} type="textarea" />
+            </div>
+            <label > Avatar</label>
+<div className="flex container w-full m-auto ">
             {listAvt.map((item,index ) =>(
-  <div className="flex container w-4/5 m-auto flex-row ">
-    <img  src={item} className="w-[30px]" />
+  <div >
+    <a onClick={()=>setAvt(item)} >
+    <img  src={item} className="w-[30px]"  />
+    </a>
     </div>
             )
- )}
+ )}</div>
             {/* <img  alt="https://preview.redd.it/cpwkbke13vv51.png?auto=webp&s=9158e49b35ad2581d840efd2a013a9ead06abbc7" /> */}
           </div>
           <Button text="Save" />
 
-          <p> Anh </p>
-          <div>{}</div>
+   
         </section>
       </form>
     </div>

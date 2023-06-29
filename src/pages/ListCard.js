@@ -3,11 +3,15 @@ import { useSelector } from 'react-redux';
 
 const ListCard = () => {
     const listCard = useSelector((state)=>state.card)
+    // console.log(listCard.cards[0].color);
+    const currentDate = new Date();
+    const currentDay = currentDate.getDate();
+    const currentMonth = currentDate.getMonth() + 1;
+    
 
-    console.log(listCard.cards);
     return (
         <div>
-            list card 
+            {/* list card  */}
             <div>
                 <div class="mx-auto container py-20 px-6">
 
@@ -15,7 +19,17 @@ const ListCard = () => {
                
             {listCard.cards.map((card,index)=>(
              <div class="rounded">
-                    <div class="w-full h-64 flex flex-col justify-between dark:bg-gray-800 bg-white dark:border-gray-700 rounded-lg border border-gray-400 mb-6 py-5 px-4">
+             {/* {card.color} */}
+                    <div className={`  w-full  flex flex-col justify-between
+                     dark:bg-gray-800 bg-white
+                      dark:border-gray-700
+                       rounded-lg border mb-6 py-5 px-4
+                       bg-${card.color}-200
+                       `}
+                     
+                       
+                        >
+
                         <div>
                             <h4 class="text-gray-800 dark:text-gray-100 font-bold mb-3">
                            {card.title} </h4>
@@ -24,7 +38,7 @@ const ListCard = () => {
                         </div>
                         <div>
                             <div class="flex items-center justify-between text-gray-800 dark:text-gray-100">
-                                <p class="text-sm">March 28, 2020</p>
+                                <p class="text-sm">{currentDay}/{currentMonth}</p>
                                 <button class="w-8 h-8 rounded-full bg-gray-800 dark:bg-gray-100 dark:text-gray-800 text-white flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2  focus:ring-black" aria-label="edit note" role="button">
                                     <svg  xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z"></path>

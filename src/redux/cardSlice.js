@@ -3,7 +3,7 @@ export const cardSlice = createSlice({
   name: "card",
   initialState: {
     cards: [{ title: "title", descriptions: "descriptions" 
-, theme:""
+, color:"black"
  }],
   },
   reducers: {

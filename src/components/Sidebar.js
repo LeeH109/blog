@@ -5,13 +5,15 @@ const Sidebar = () => {
   return (
    
         <div
+       
           id="sidebar"
-          class="bg-white h-screen md:block shadow-xl px-3 w-30 md:w-60 lg:w-60 overflow-x-hidden transition-transform duration-300 ease-in-out"
+          class="bg-white h-screen md:block shadow-xl px-3 w-30 md:w-60 lg:w-60 overflow-x-hidden
+          fixed z-20 left-0 top-0 bottom-0 transition-transform duration-300 ease-in-out"
           x-show="sidenav"
         >
-          <div class="space-y-6 md:space-y-10 mt-10">
+          <div class="space-y-6 md:space-y-10 mt-10  ">
             <h1 class="font-bold text-4xl text-center md:hidden">
-              D<span class="text-teal-600">.</span>
+              I<span class="text-teal-600">.</span>
             </h1>
             <h1 class="hidden md:block font-bold text-sm md:text-xl text-center">
               Instagram<span class="text-teal-600">.</span>
