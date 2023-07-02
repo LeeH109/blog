@@ -3,7 +3,7 @@ import Input from "./components/Input";
 import React, { useState } from "react";
 import { addCard } from "../redux/cardSlice";
 import Button from "./components/Button";
-
+import {TiDelete} from 'react-icons/ti'
 const Form = ({setClickButton,clickButton,handleClickButton}) => {
     const card = useSelector((state=>state.card))
     const dispatch = useDispatch()
@@ -11,17 +11,11 @@ const Form = ({setClickButton,clickButton,handleClickButton}) => {
     const [title,setTitle] = useState('')
     const [description,setDescription] = useState('')
    
-    // const handleSave =()=>{
-    //     setClickButton(false)
-    // }
     const [color, setColor] = useState("");
-    // console.log(card.cards);
-    
     const colors = ["red", "yellow", "orange","teal" ,'violet'];
     
   const handleColor = (color) => {
     setColor(color);
-    // console.log(color);
   };
 
     const handleSubmit = (e) => {
@@ -87,11 +81,15 @@ const Form = ({setClickButton,clickButton,handleClickButton}) => {
 </div>
               </div>
               <div>
-                <div class=" mt-6 flex items-center justify-between text-gray-800 dark:text-gray-100">
-                <Button text="x" onClick={handleClickButton}  />
+                <div class=" mt-6 flex items-center justify-between  w-full text-gray-800 dark:text-gray-100">
+                {/* <Button text="x" onClick={handleClickButton}  /> */}
+               <div className="-ml-32">
+               <TiDelete className=' text-5xl ml-28 hover:text-red-500 cursor-pointer duration-150 '  onClick={handleClickButton}/>
+               </div>
                   <button
                     // onClick={handleSave}
-                    className="w-8 h-8 rounded-full bg-gray-800 dark:bg-gray-100 dark:text-gray-800
+
+                    className=" w-8 h-8 rounded-full bg-gray-800 dark:bg-gray-100 dark:text-gray-800
                      text-white flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2  focus:ring-black"
                     aria-label="edit note"
                     role="button"

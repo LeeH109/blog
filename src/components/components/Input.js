@@ -1,6 +1,6 @@
 import React from "react";
 
-const Input = ({ type, data, setData, label  }) => {
+const Input = ({ type, data, setData, label,value  }) => {
 
   return (
     <div>
@@ -13,6 +13,7 @@ const Input = ({ type, data, setData, label  }) => {
             focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder={data}
           onChange={(e) => setData(e.target.value)}
+          value={value}
         />
       ) 
 
@@ -21,6 +22,7 @@ const Input = ({ type, data, setData, label  }) => {
         <input
           type="text"
           placeholder={data}
+          value={value}
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           onChange={(e) => setData(e.target.value)}
         />

@@ -25,7 +25,7 @@ const Home = () => {
       {/* <div className="flex"> */}
       <div class="font-poppins antialiased overflow-hidden">
         <div id="view" class="h-full w-screen flex flex-row w-full">
-          <div className="w-1/6">
+          <div className="w-1/6 max-w-[300px]:hidden  ">
             <Sidebar />
           </div>
           <div className=" w-5/6 ">

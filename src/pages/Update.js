@@ -45,14 +45,14 @@ const Update = ({ setIsOpen,isOpen }) => {
     <div className="w-full  ">
       <form onSubmit={handleSubmit} 
        className={`${isOpen ? "right-1/4" : "-right-full"} }
-  w-4/5 bg-white fixed top-0  h-screen items-center
+  w-4/5 bg-white fixed top-0  h-4/5 items-center
   shadow-2xl md:x-[35vw] xl:max-w-[32vw] 
-  transition-all duration-300 z-20 px-4 
+  transition-all duration-300 z-20 px-4 my-2 mb-2
    lg:px-[35px] 
   `} >
         <section className="w-full  ">
           {/* edit */}
-        <h3 className="my-4 text-center font-bold text-2xl" > Edit Profile </h3>
+        <h3 className="my-6 text-center font-bold text-2xl " > Edit Profile </h3>
           <div className="w-full" >
             <div class="mb-4  ">
               <Input label="Name" data={user.name}
@@ -69,19 +69,21 @@ const Update = ({ setIsOpen,isOpen }) => {
        <Input label='Bio' data={user.bio}
        setData = {setBio} type="textarea" />
             </div>
-            <label > Avatar</label>
-<div className="flex container w-full m-auto ">
+            <label className="" > Avatar</label>
+<div className="flex container w-full m-auto mt-2 ">
             {listAvt.map((item,index ) =>(
   <div >
     <a onClick={()=>setAvt(item)} >
-    <img  src={item} className="w-[30px]"  />
+    <img  src={item} className="w-[30px] mx-2 "  />
     </a>
     </div>
             )
  )}</div>
             {/* <img  alt="https://preview.redd.it/cpwkbke13vv51.png?auto=webp&s=9158e49b35ad2581d840efd2a013a9ead06abbc7" /> */}
           </div>
-          <Button text="Save" />
+         <div className="flex m-auto mt-8 w-full ml-40 ">
+         <Button text="Save" />
+         </div>
 
    
         </section>
